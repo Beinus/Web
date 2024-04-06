@@ -25,10 +25,13 @@
   align-items: center;
 }
 
+.beinus-logo {
+  width: 32px;
+}
+
 .beinus-title {
   font-size: 1.5rem;
   transition: linear 0.15s;
-  margin-left: 10px;
 }
 
 .beinus-title:hover {

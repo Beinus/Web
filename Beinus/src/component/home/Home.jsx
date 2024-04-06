@@ -6,7 +6,7 @@ import Leftbar from './Leftbar'
 import Stories from './Stories'
 import Add from '../add/Add'
 import Friends from './Friends';
-import Customize from './Customize';
+import Customize from '../customize/Customize';
 
 function Home() {
 

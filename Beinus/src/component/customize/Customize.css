@@ -1,0 +1,18 @@
+.customize-block {
+    background-color: red;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 600px;
+    height: auto;
+    margin: 20px;
+}
+
+.profile-block {
+    background-color: gray;
+}
+
+.profile-name {
+    background-color: blue;
+}

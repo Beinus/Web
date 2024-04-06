@@ -10,6 +10,7 @@ function Topbar({onHamburgerClick}) {
             <nav className='top-bar-items'>
                 <div className='left-side'>
                     <button className="hamburger-menu" onClick={onHamburgerClick}>Menu</button>
+                    <img className='beinus-logo' src='/src/assets/Beinus logo colored.png'></img>
                     <a href='/' className='beinus-title'>
                         Beinus
                     </a>
