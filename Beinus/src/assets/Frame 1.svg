@@ -1,0 +1,6 @@
+<svg width="250" height="250" viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="250" height="250" rx="30" fill="black"/>
+<path d="M25 125H225" stroke="white" stroke-width="16" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path d="M25 225L225 25" stroke="white" stroke-width="16" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path d="M125 225L125 25" stroke="white" stroke-width="16" stroke-linecap="round" stroke-linejoin="bevel"/>
+</svg>
