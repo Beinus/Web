@@ -10,19 +10,20 @@ function Topbar({onHamburgerClick}) {
             <nav className='top-bar-items'>
                 <div className='left-side'>
                     <button className="hamburger-menu" onClick={onHamburgerClick}>Menu</button>
-                    <a href='/' className='beinus-title'>
+                    <img className='beinus-logo' src='/src/assets/Beinus logo colored.png'></img>
+                    <Link to='/home' className='beinus-title'>
                         Beinus
-                    </a>
+                    </Link>
                 </div>
                 <ul>
                     <li className='active'>
-                        <Link to="/Add">Add</Link>
+                        <Link to="/home/add">Add</Link>
                     </li>
                     <li>
-                        <Link to="/Friends">Friends</Link>
+                        <Link to="/home/friends">Friends</Link>
                     </li>
                     <li>
-                        <Link to="/Customize">Customize</Link>
+                        <Link to="/home/customize">Customize</Link>
                     </li>
                 </ul>
             </nav>

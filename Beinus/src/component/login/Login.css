@@ -1,0 +1,74 @@
+.login-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-with-beinus {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.logo {
+    height: 60px;
+    border-radius: 10px;
+}
+
+.beinus {
+    margin: 0;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.inputs * {
+    padding: 8px;
+    width: 260px;
+    margin-top: 10px;
+    border: 1px solid gray;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    transition: ease 0.25s;
+}
+
+.inputs *:focus {
+    box-shadow: 0 0 8px white;
+    outline: none;
+}
+
+.login-screen-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+}
+
+.login-screen-buttons * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:32px;
+    margin-top: 10px;
+    background-color: rgb(69, 202, 255);
+    color: rgb(75, 75, 75);
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    border: 0px;
+    transition: ease 0.25s;
+}
+
+.login-screen-buttons *:hover {
+    background-color: rgb(0, 174, 255);
+    cursor: pointer;
+}
