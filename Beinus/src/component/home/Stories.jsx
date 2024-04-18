@@ -23,10 +23,10 @@ function Posts() {
 
     return(
         <div className='posts'>
-            <Story key={tmpStory.id} story={tmpStory}></Story>
-            {stories.map(story => (
+            {stories.reverse().map(story => (
                 <Story key={story.id} story={story}/>
-            ))}
+            )).reverse()}
+            <Story key={tmpStory.id} story={tmpStory}></Story>
         </div>
     )
 }

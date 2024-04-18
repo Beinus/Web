@@ -30,7 +30,7 @@ function Login() {
                     console.log("Valid")
                     navigate('/home')
                 } else {
-                    alert('Unvalid ID or password.(else)');
+                    alert('Unvalid ID or password.');
                 }
             })
             .catch(() => alert('Unvalid ID or password.'));

@@ -36,13 +36,22 @@ function Signup() {
             userPassword: password,
         }
         
-        fetch("http://localhost:8080/api/user/save", {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify(data),
-        }).then(() => {
-            navigate(-1)
-        })
+        if (id != "" && name != "" && password != "" && password == password2) {
+            fetch("http://localhost:8080/api/user/save", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json'},
+                body: JSON.stringify(data),
+            }).then(() => {
+                alert("Signup complete! Please log in again.")
+                navigate(-1)
+            })
+        }
+        else if (password != password2) {
+            alert("Please check the password again.")
+        }
+        else {
+            alert("Please fill in all the blanks.")
+        }
     }
 
 
