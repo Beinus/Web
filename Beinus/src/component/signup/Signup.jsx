@@ -35,21 +35,28 @@ function Signup() {
             userName: name,
             userPassword: password,
         }
-        
+
         if (id != "" && name != "" && password != "" && password == password2) {
-            fetch("http://localhost:8080/api/user/save", {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json'},
-                body: JSON.stringify(data),
-            }).then(() => {
-                alert("Signup complete! Please log in again.")
-                navigate(-1)
-            })
-        }
-        else if (password != password2) {
+            fetch('http://localhost:8080/api/user/' + id)
+                .then((response) => response.json())
+                .then((userExists) => {
+                    if (userExists) {
+                        alert("This ID already exists! Try another ID.")
+                    } else {
+                        fetch("http://localhost:8080/api/user/save", {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json'},
+                            body: JSON.stringify(data),
+                        }).then(() => {
+                            alert("Signup complete! Please log in again.")
+                            navigate(-1)
+                        })
+                    }
+                })
+                .catch((error) => console.error('Error fetching data:', error));
+        } else if (password != password2) {
             alert("Please check the password again.")
-        }
-        else {
+        } else {
             alert("Please fill in all the blanks.")
         }
     }
