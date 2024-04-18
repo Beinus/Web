@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './Add.css'
 import { Button } from '@mui/material'
-import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Story() {
 
@@ -41,7 +41,7 @@ function Story() {
         }).then(() => {
             console.log('added');
             setIsLoading(false);
-            navigate('/')
+            navigate('/home')
         })
     }
     
