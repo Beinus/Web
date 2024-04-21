@@ -24,7 +24,6 @@ function Login() {
         fetch("http://localhost:8080/api/user/" + id)
             .then((response) => response.json())
             .then((user) => {
-                console.log(user)
         
                 if (user?.userId === id && user?.userPassword === password) {
                     console.log("Valid")
