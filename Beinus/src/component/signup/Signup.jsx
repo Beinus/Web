@@ -27,30 +27,29 @@ function Signup() {
         setPassword2(e.target.value)
     }
 
-    
+
     function handleSignup() {
 
         const data = {
             userId: id,
             userName: name,
-            userPassword: password,
+            userPassword: password
         }
 
         if (id != "" && name != "" && password != "" && password == password2) {
             fetch('http://localhost:8080/api/user/' + id)
-                .then((response) => response.json())
-                .then((userExists) => {
-                    if (userExists) {
-                        alert("This ID already exists! Try another ID.")
-                    } else {
+                .then((response) => {
+                    if(response.status === 404) {
                         fetch("http://localhost:8080/api/user/save", {
                             method: 'POST',
-                            headers: { 'Content-Type': 'application/json'},
+                            headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(data),
                         }).then(() => {
                             alert("Signup complete! Please log in again.")
                             navigate(-1)
                         })
+                    } else if(response.status === 200) {
+                        alert("This ID already exists! Try another ID.")
                     }
                 })
                 .catch((error) => console.error('Error fetching data:', error));
