@@ -2,11 +2,10 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Login.css'
 
-function Login() {
+function Login({ logIn }) {
 
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
-
     const navigate = useNavigate();
 
     function handleIdChange(e) {
@@ -17,22 +16,36 @@ function Login() {
         setPassword(e.target.value)
     }
 
-
-
     function handleLogin() {
-        
-        fetch("http://localhost:8080/api/user/" + id)
-            .then((response) => response.json())
-            .then((user) => {
-        
-                if (user?.userId === id && user?.userPassword === password) {
-                    console.log("Valid")
-                    navigate('/home')
+        const userData = {
+            userId: id,
+            userPassword: password
+        }
+
+        fetch("http://localhost:8080/api/v1/auth/authenticate", {
+            method: 'POST', // HTTP method for adding data
+            headers: { 'Content-Type': 'application/json' }, // Set the content type
+            body: JSON.stringify(userData), // Convert data to JSON string
+        })
+            .then((response) => {
+                if (response.status === 200) {
+                    return response.json(); // Parse the response as JSON
                 } else {
-                    alert('Unvalid ID or password.');
+                    alert("Invalid ID or password");
+                    throw new Error('Invalid ID or password');
                 }
             })
-            .catch(() => alert('Unvalid ID or password.'));
+            .then((data) => {
+                if (data.token) {
+                    alert('Login Successful!');
+                    logIn(userData.userId); // Pass the userId to the logIn function
+                    localStorage.setItem('access_token', data.token); // Store the token in localStorage
+                    navigate('/home');
+                } else {
+                    alert("Invalid ID or password");
+                }
+            })
+            .catch((error) => console.error('Error fetching data:', error));
     }
 
     return (
