@@ -26,7 +26,7 @@ function Story() {
         setContent(updatedContent);
         
         const data = {
-            userName: "Administrator",
+            userName: localStorage.getItem('loggedUser').replace(/"/g, ''),
             title,
             content: updatedContent,
             likes: 999999
@@ -34,9 +34,15 @@ function Story() {
 
         setIsLoading(true);
 
+        const accessToken = localStorage.getItem('access_token');
+
         fetch("http://localhost:8080/api/stories/save", {
             method: 'POST', // HTTP method for adding data
-            headers: { 'Content-Type': 'application/json' }, // Set the content type
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`
+
+            }, // Set the content type
             body: JSON.stringify(data), // Convert data to JSON string
         }).then(() => {
             console.log('added');
