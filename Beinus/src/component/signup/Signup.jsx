@@ -33,7 +33,10 @@ function Signup() {
         const data = {
             userId: id,
             userName: name,
-            userPassword: password
+            userPassword: password,
+            userImage: "",
+            userColor: "#87CEEB",
+            userIntro: ""
         }
 
         if (id != "" && name != "" && password != "" && password == password2) {
