@@ -9,7 +9,7 @@ function App() {
     const [loggedUser, setLoggedUser] = useState(null)
 
     useEffect(() => {
-        const storedUser = localStorage.getItem('loggedUser')
+        const storedUser = localStorage.getItem('user_id')
         if (storedUser) {
             setLoggedUser(JSON.parse(storedUser))
         }
@@ -18,13 +18,13 @@ function App() {
     // Callback to set isLoggedIn to true (when user logs in)
     const logIn = (userId) => {
         setLoggedUser(userId)
-        localStorage.setItem('loggedUser', JSON.stringify(userId))
+        localStorage.setItem('user_id', JSON.stringify(userId))
     }
 
     // Callback to set isLoggedIn to false (when user logs out)
     const logOut = () => {
         setIsLoggedIn(false)
-        localStorage.removeItem('loggedUser')
+        localStorage.removeItem('user_id')
     }
 
     return (

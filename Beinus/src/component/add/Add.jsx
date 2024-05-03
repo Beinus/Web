@@ -26,7 +26,7 @@ function Story() {
         setContent(updatedContent);
         
         const data = {
-            userName: localStorage.getItem('loggedUser').replace(/"/g, ''),
+            userId: localStorage.getItem('user_id').replace(/"/g, ''),
             title,
             content: updatedContent,
             likes: 999999
