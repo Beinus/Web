@@ -5,6 +5,7 @@ import React, {useState, useEffect} from "react"
 function Posts() {
 
     const [stories, setStories] = useState([]);
+    const [likedStories, setLikedStories] = useState([]);
     
     useEffect(() => {
         const accessToken = localStorage.getItem('access_token');
@@ -16,6 +17,16 @@ function Posts() {
         })
         .then((response) => response.json())
         .then((data) => setStories(data))
+        .catch((error) => console.error('Error fetching data:', error));
+
+        
+        fetch('http://localhost:8080/api/stories/' + localStorage.getItem('user_id') + '/likedStories', {
+          headers: {
+            'Authorization': `Bearer ${accessToken}`
+          }
+        })
+        .then((response) => response.json())
+        .then((data) => setLikedStories(data))
         .catch((error) => console.error('Error fetching data:', error));
       }, []);
     
@@ -30,7 +41,7 @@ function Posts() {
     return(
         <div className='posts'>
             {stories.reverse().map(story => (
-                <Story key={story.id} story={story}/>
+                <Story key={story.id} story={story} liked={likedStories.some(likedStory => likedStory.id === story.id)}/>
             )).reverse()}
             <Story key={tmpStory.id} story={tmpStory}></Story>
         </div>
