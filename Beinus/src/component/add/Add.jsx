@@ -26,10 +26,10 @@ function Story() {
         setContent(updatedContent);
         
         const data = {
-            userId: localStorage.getItem('user_id').replace(/"/g, ''),
+            userId: localStorage.getItem('user_id'),
             title,
             content: updatedContent,
-            likes: 999999
+            likes: 0
         }
 
         setIsLoading(true);

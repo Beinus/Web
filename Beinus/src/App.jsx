@@ -11,17 +11,18 @@ function App() {
     useEffect(() => {
         const storedUser = localStorage.getItem('user_id')
         if (storedUser) {
-            setLoggedUser(JSON.parse(storedUser))
+            setLoggedUser(storedUser)
         }
     }, [])
 
     // Callback to set isLoggedIn to true (when user logs in)
     const logIn = (userId) => {
         setLoggedUser(userId)
-        localStorage.setItem('user_id', JSON.stringify(userId))
+        localStorage.setItem('user_id', userId)
     }
 
     // Callback to set isLoggedIn to false (when user logs out)
+    // NOT DEFINED YET!!
     const logOut = () => {
         setIsLoggedIn(false)
         localStorage.removeItem('user_id')
