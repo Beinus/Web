@@ -20,7 +20,7 @@
   display: none;
 }
 
-.left-side{
+.left-side {
   display: flex;
   align-items: center;
 }
@@ -69,7 +69,6 @@
   text-shadow: 0 0 0.5em white;
 }
 
-
 /* Fix the contents below the top bar */
 .below-topbar {
   display: flex;
@@ -79,7 +78,6 @@
   height: calc(100vh - 60px);
   overflow: auto;
 }
-
 
 /* Left bar css */
 .leftbar {
@@ -142,11 +140,8 @@
   transition: ease 0.25s;
 }
 
-
-
 /* content css */
 .stories {
-  /* Add additional styles as needed for the stories section */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -167,7 +162,7 @@
 
 .story {
   max-width: 600px;
-  height:auto;
+  height: auto;
   padding: 0 16px;
 }
 
@@ -207,21 +202,32 @@
   cursor: pointer;
 }
 
+.friends-screen {
+  width: 100%;
+  max-width: 600px;
+}
 
 .profile-brief {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  max-width: 500px;
   padding: 16px;
-  border: 1px solid red;
+  margin-top: 16px;
+  border: 1px solid gray;
+  border-radius: 8px;
 }
 
 .profile-brief-image-and-name {
   display: flex;
   align-items: center;
+}
+
+.profile-brief-image-and-name img {
+  width: 50px; /* Set a fixed width for the image */
+  height: 50px; /* Set a fixed height for the image */
+  object-fit: cover; /* Ensure the image maintains aspect ratio and fills the space */
+  border-radius: 50%; /* Optional: make the image circular */
 }
 
 .profile-brief-name {
@@ -230,14 +236,21 @@
   align-items: center;
   padding: 0 16px;
   margin: 0;
-  font-size: 28px;
+  font-size: 20px;
+}
+
+.profile-brief-buttons {
+  display: flex;
+  flex-direction: row; /* Stack buttons vertically */
+  gap: 8px; /* Add spacing between buttons */
 }
 
 .profile-brief-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  height:32px;
+  margin-left: 12px;
+  height: 32px;
   background-color: rgb(69, 202, 255);
   color: rgb(75, 75, 75);
   border-radius: 6px;
@@ -245,6 +258,7 @@
   font-size: 16px;
   border: 0px;
   transition: ease 0.25s;
+  width: 70px; /* Set a fixed width for the button */
 }
 
 .profile-brief-button:hover {
