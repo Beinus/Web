@@ -27,12 +27,7 @@ function Friends() {
   }, []);
 
   const accept = (user1, user2) => {
-    fetch("http://localhost:8080/api/follows/delete", {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ user1, user2 }),
-    }).then(() =>
-      fetch("http://localhost:8080/api/follows/save", {
+    fetch("http://localhost:8080/api/follows/save", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user1, user2, state: "Friends" }),
@@ -41,8 +36,7 @@ function Friends() {
         .then((newFriend) => {
           setRequests((prev) => prev.filter((item) => !(item.user1 === user1 && item.user2 === user2)));
           setFriends((prev) => [...prev, newFriend]);
-        })
-    );
+        });
   };
 
   const remove = (user1, user2) => {
