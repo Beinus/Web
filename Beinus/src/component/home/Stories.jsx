@@ -40,7 +40,7 @@ function Posts() {
 
     return(
         <div className='posts'>
-            {stories.reverse().map(story => (
+            {stories.map(story => (
                 <Story key={story.id} story={story} liked={likedStories.some(likedStory => likedStory.id === story.id)}/>
             )).reverse()}
             <Story key={tmpStory.id} story={tmpStory}></Story>

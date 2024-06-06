@@ -37,6 +37,7 @@ function App() {
                 <Route path='/signup' element={<Signup/>}/>
                 {/* Protected routes */}
                 <Route path='/home/*' element={loggedUser ? <Home/> : <Navigate to="/" />}/>
+                {/* loggedUser ? <Home/> : <Navigate to="/" /> */}
             </Routes>
         </BrowserRouter>
     )
